@@ -31,33 +31,25 @@ public class DNAencryptor{
         // then go down the key starting with letters and after Z switch to . , ! and ? then move to numbers 1-0
         for(int i = 0; i < message.length(); i++){
             char tempLetter = charList[i];
-            
-            // start of letters
-            if (tempLetter == 'A'){
-                System.out.print("UUU");
-            }
-            else if (tempLetter == 'B'){
-                System.out.print("UUC");
-            }
-            else if (tempLetter == 'C'){
-                System.out.println("UUA");
-            }
-            else if (tempLetter == 'D'){
-                System.out.print("UUG");
-            }
-            else if (tempLetter == 'E'){
-                System.out.print("CUU");
-            }
-        
-
-// MAYBE USE LISTS?
-
-
-
-            else{System.out.println("Character not added yet");}
+            System.out.print(codonMatch(tempLetter));
+           
         }
         
        
     
+}
+
+private String codonMatch(char inputLetter){
+    char currentLetter = inputLetter;
+    char[] letterList = {'A', 'B', 'C'};
+    String[] codonList = {"UUU", "UUC", "UUA"};
+    for (int i = 0; i < letterList.length; i++){
+        if (currentLetter == letterList[i]){
+            return codonList[i];
+        }
+        else{continue;}
+    }
+
+
 }
 }
